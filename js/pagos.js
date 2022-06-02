@@ -31,6 +31,38 @@ class pago extends HTMLElement {
             <a href=""><buttom type="submit">Ver formas de pago</buttom></a>
             <a href="index.html"><button type="clear" id="apple">Regresar</button></a>
         </div>
+    <div class="form-container iniciar-container">
+
+            <form action="index.html" target="_blank">
+                <div id="smart-button-container">
+                    <div ><label for="description">Descripcion del pago: </label><input type="text" name="descriptionInput" id="description" maxlength="127" value="" placeholder="Descripción"></div>
+                      <p id="descriptionError" style="visibility: hidden; color:red; text-align: center;">Por favor ingrese una descripción</p>
+                    <div ><label for="amount" >Ingrese valor a pagar: </label><input name="amountInput" type="number" id="amount" value=""  placeholder="USD"></div>
+                      <p id="priceLabelError" style="visibility: hidden; color:red; text-align: center;">Por favor ingrese un precio</p>
+                    <div id="invoiceidDiv" style="text-align: center; display: none;"><label for="invoiceid"> </label><input name="invoiceid" maxlength="127" type="text" id="invoiceid" value="" ></div>
+                      <p id="invoiceidError" style="visibility: hidden; color:red; text-align: center;">Por favor ingrese un Invoice ID</p>
+                    <div style="text-align: center; margin-top: 0.625rem;" id="paypal-button-container"></div>
+                      
+                </div>
+               <button type="clear" id="regresar"> <a href="index.html">Regresar</a></button>
+            </form>  
+           
+        </div>
+        <div class="overlay-container">
+            <div class="overlay">
+                <div class="overlay-panel overlay-left">
+                    <h1>¡Pague fácil y ágil en línea!</h1>
+                    <p>Realizar pago con tarjeta de crédito/débito</p>
+                    <button class="ghost" id="iniciarS">Pago Crédito/Débito</button>
+                </div>
+
+                <div class="overlay-panel overlay-right">
+                    <h1>¡Bienvenido al Portal de pago!</h1>
+                    <p>Realizar pago mediante depósito o transferencia bancaria</p>
+                    <button class="ghost" id="registro">Pago Bancario</button>
+                </div>
+            </div>
+        </div>
     </div>
     `;
 
