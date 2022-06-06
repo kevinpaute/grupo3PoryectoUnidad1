@@ -138,3 +138,185 @@ class Cabecera extends HTMLElement {
         shadow.appendChild(style);
     }
 }
+
+// Clase para la seccion de botones
+class OptionButton extends HTMLElement {
+    constructor() {
+      // constructor
+      super();
+      
+    
+      // Create a shadow root
+      const shadow = this.attachShadow({mode: 'open'});
+      const contenedor_botones = document.createElement('div');
+      contenedor_botones.setAttribute('class', 'botones')
+      const contenedor_info = document.createElement('div');
+      contenedor_info.setAttribute('class', 'info')
+      const sup_info = document.createElement('div');
+      //sup_info.setAttribute('class','contenedor-general');
+      //contenedor_info.appendChild(sup_info);
+      
+      //Creacion de contenedor de personal
+      opciones_botones.forEach(function(area){
+        let contenedor = document.createElement('div');
+        contenedor.setAttribute('class', `contenedor`);
+        //contenedor.setAttribute('id',`opc-${index}`)
+        area.forEach(function(persona) {
+            let trabajo = document.createElement('div');
+            trabajo.setAttribute('class', 'trabajo');
+            let contenedorImagen = document.createElement('div');
+            contenedorImagen.setAttribute('class', 'contImagen');
+            let img = document.createElement('img');
+            img.setAttribute('class', 'prue-fot');
+            img.setAttribute('src', persona["img"]);
+            contenedorImagen.appendChild(img);
+            trabajo.appendChild(contenedorImagen);
+            let descripcion= document.createElement('div');
+            descripcion.setAttribute('class', 'descripcion');
+            let nombre= document.createElement('p');
+            nombre.setAttribute('class', 'nombre');
+            nombre.textContent = persona["nombre"];
+            let categoria= document.createElement('p');
+            categoria.setAttribute('class', 'categoria');
+            categoria.textContent = persona["categoria"];
+            descripcion.appendChild(nombre);
+            descripcion.appendChild(categoria);
+            trabajo.appendChild(descripcion);
+            contenedor.appendChild(trabajo);
+        })
+        contenedor_info.appendChild(contenedor);
+      }
+
+      )
+      
+      
+      
+      
+
+      
+      
+      const descripcion= document.createElement('div');
+      descripcion.setAttribute('class', 'descripcion');
+
+      
+      // Crear botones
+      for (var i = 0; i < 4; i++) {
+        let boton = document.createElement('button');
+        boton.setAttribute('class', 'btn_mostrar');
+        boton.setAttribute('id', `btn_mostrar${i}`);
+        boton.addEventListener("click", this.functionToExecute, false);
+        boton.textContent = botones[i];
+        contenedor_botones.appendChild(boton);
+        }
+      // Create some CSS to apply to the shadow dom
+      const style = document.createElement('style');
+  
+      style.textContent = `
+        .botones{
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            gap: 0.5rem;
+            
+        }
+        .btn_mostrar{
+            background-color: #210555;
+            border: none;
+            border-radius: 40px;
+            color: white;
+            padding: 15px 32px;
+            font-size: 1.2rem;
+            box-shadow: 0px 0px 10px 0px #07b3b9;
+            cursor: pointer;
+            line-height: 1.15;
+            margin: 0;
+                }
+        .contenedor,.info{
+            display: none
+        }
+        .show{
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 2rem;
+        }
+        .info{
+            background: rgba(51, 2, 114, 0.267);
+            padding: 60px 0;
+        }
+
+        .contenedor{
+            border: 1px solid #000;
+            background: #fff;
+            border-radius: 20px;
+            padding: 20px 10px; 
+            margin-bottom: 40px;
+            font-family: Geneva, Verdana, sans-serif;
+            width: 90%;
+            max-width: 1000px
+        }
+        .trabajo{
+            width: 22%;
+            margin-bottom: 10px;
+        }
+        .contImg{
+            width: 100%;
+            margin-bottom: 10px;
+        }
+        img{
+            border-style: none;
+            width: 100%;
+            vertical-align: top;
+            border-radius: 4px;
+            box-shadow: 0px 15px 5px rgb(0 0 0 / 50%);
+            cursor: pointer;
+        }
+        .descripcion{
+            text-align: center;
+        }
+        .nombre{
+            font-weight: 700;
+            color: #3895ea;
+            margin-bottom: 10px;
+        }
+        .categoria{
+            font-size: 14px;
+            color: #636363;
+        }
+      `;
+  
+      // unir hijos principales
+      shadow.appendChild(contenedor_botones);
+      shadow.appendChild(contenedor_info);
+      shadow.appendChild(style);
+    }
+    functionToExecute(e){
+        let opc = e.target.id//.match(/(\d+)/g);
+        const botones_total = e.target.parentNode.getElementsByClassName(`btn_mostrar`);//
+        const boton_sel = e.target.parentNode.nextSibling.getElementsByClassName(`contenedor`);
+        const info = e.target.parentNode.nextSibling;
+        if(e.target.className == 'btn_mostrar'){
+            e.target.setAttribute('class', 'btn_mostrar show1');
+            //botones_total.setAttributbotones_total[i]
+            for (let i = 0; i < botones_total.length; i++) {
+                if(botones_total[i].id == opc){
+                    boton_sel[i].setAttribute('class', 'contenedor show');
+                    info.setAttribute('class','info show');
+                }else{
+                    botones_total[i].setAttribute('class', 'btn_mostrar');
+                    boton_sel[i].setAttribute('class', 'contenedor');
+                }
+                
+            }
+
+        }else{
+            for (let i = 0; i < botones_total.length; i++) {
+                botones_total[i].setAttribute('class', 'btn_mostrar');
+                boton_sel[i].setAttribute('class', 'contenedor');
+                info.setAttribute('class','info');
+            }
+        }
+    }
+  }
+  
