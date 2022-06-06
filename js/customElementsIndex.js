@@ -15,7 +15,7 @@ class ejemploTabla extends HTMLElement { //Se ejecuta cuando el elemento se ha e
     
     /* CAMBIO DEL FONDO */
     body {
-        background: rgba(16, 101, 170, 0.26);
+        background: #EAF2F8;
         font-family: "Open Sans", sans-serif;
         font-size: 16px;
     }
