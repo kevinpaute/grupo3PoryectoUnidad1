@@ -75,15 +75,17 @@ class pago extends HTMLElement {
 }
 
 body {
-    background: #ffe7c7;
+    background: url("../img/imagen2.jpg");
+
+    background-position: center;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
     font-family: 'Montserrat', sans-serif;
-    height: 100vh;
     margin: -20px 0 50px;
 }
+
 
 h1 {
     font-weight: bold;
@@ -99,20 +101,19 @@ p {
     font-weight: 100;
     line-height: 20px;
     letter-spacing: 0.5px;
-    margin: 20px 0 30px;
 }
 
 .container {
-    background-color: rgb(255, 255, 255);
+    background-color: #ffffff;
     border-radius: 10px;
     box-shadow: 0 14px 28px rgba(0,0,0,0.25), 
             0 10px 10px rgba(0,0,0,0.22);
     position: relative;
     overflow: hidden;
-    margin-top: 30px;
-    width: 835px;
+    margin-top: 100px;
+    width: 70%;
     max-width: 100%;
-    min-height: 585px;
+    min-height: 600px;
 }
 
 form {
@@ -122,7 +123,8 @@ form {
     justify-content: center;
     flex-direction: column;
     padding: 0 50px;
-    height: 100%;
+    margin-top: 40px;
+    height: 90%;
     text-align: center;
 }
 
@@ -134,21 +136,23 @@ form {
     
 }
 
+
+
 select{
     border: none;
     background-color: rgb(219, 219, 219);
-    width: 100%;
+    width: 90%;
     margin: 8px 0;
     padding: 12px 15px;
 }
 
 
 input {
-    background-color: rgb(219, 219, 219);
+    background-color: rgb(224, 224, 224);
     border: none;
     padding: 12px 15px;
-    margin: 8px 0;
-    width: 100%;
+    margin: 5px;
+    width: 90%;
 }
 
 label{
@@ -159,16 +163,17 @@ label{
 
 button {   
     border-radius: 20px;
-    border: 1px solid #ff672b;
-    background-color: #FF4B2B;
+    border: 1px solid rgb(0, 0, 0);
+    background-color: #181818;
     color: #FFFFFF;
     font-size: 12px;
     font-weight: bold;
-    padding: 12px 45px;
+    padding: 5px;
+    margin-top: 20px;
     letter-spacing: 1px;
     text-transform: uppercase;
     transition: transform 80ms ease-in;
-    width: 100%;
+    width: 90%;
     line-height: 30px;
     justify-content: center;
 }
@@ -191,31 +196,19 @@ button.ghost {
 }
 
 
-#facebook{
-    background-color: rgb(2, 83, 204);
-    border: 1px solid rgb(2, 83, 204);
-    padding: 9px;
-    display: flex;
-}
-
-#google{
-    background-color: rgb(255, 255, 255);
-    border: 1px solid rgb(167, 167, 167);
-    padding: 7px;
-    color: black;
-    display: flex;
-}
-
-#apple{
+#regresar{
     background-color: rgb(3, 3, 3);
     border: 1px solid rgb(3, 3, 3);
     padding: 7px;
     display: flex;
+    width: 100%;
 }
 
-#img{
-    margin-left: 10px;
+#regresar a{
+    text-decoration: none;
+    color: white;
 }
+
 .iniciar-container {
     left: 0;
     width: 50%;
@@ -265,9 +258,9 @@ button.ghost {
 }
 
 .overlay {
-    background: #ffb341;
-    background: -webkit-linear-gradient(to right, #f78b25, #fd7536);
-    background: linear-gradient(to right, #f39e30, #fd6e2c);
+    background: #398bd8;
+    background: -webkit-linear-gradient(to right, #3b9cdd, #3b73b3);
+    background: linear-gradient(to right, #5da2c2, #184466);
     background-repeat: no-repeat;
     background-size: cover;
     background-position: 0 0;
@@ -329,24 +322,23 @@ button.ghost {
 
     `;
 
-    this.button = this.shadowRoot.querySelector('#registro');
-    this.button.onclick = () => this.registro();
-    this.button = this.shadowRoot.querySelector('#iniciarS');
-    this.button.onclick = () => this.iniciarS();
+    this.button = this.shadowRoot.querySelector('#registro'); //boton de registro de usuario 
+    this.button.onclick = () => this.registro(); //funcion de registro de usuario 
+    this.button = this.shadowRoot.querySelector('#iniciarS'); //boton de iniciar sesion de usuario
+    this.button.onclick = () => this.iniciarS(); //funcion de iniciar sesion de usuario
     
     //mostrar right-panel-active
 
     }
 
-    registro() { 
+    registro() {  //funcion de registro de usuario
         //mostrar right-panel-active en el shadow  de la pagina
-        this.shadowRoot.querySelector('.container').classList.toggle('right-panel-active');  
+        this.shadowRoot.querySelector('.container').classList.toggle('right-panel-active');
 
     }
 
-    iniciarS() {
-        //mostrar right-panel-active en el shadow  de la pagina
-        this.shadowRoot.querySelector('.container').classList.toggle('right-panel-active');
+    iniciarS() { //funcion de iniciar sesion de usuario
+        this.shadowRoot.querySelector('.container').classList.toggle('right-panel-active'); 
     }
 
     disconnectedCallback() {
@@ -356,9 +348,7 @@ button.ghost {
 }
 
 
-
-
-window.customElements.define('pago-component', pago);
+window.customElements.define('login-component', pago);
 
 
 
