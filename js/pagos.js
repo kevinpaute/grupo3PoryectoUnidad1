@@ -5,17 +5,12 @@
 // div.attachShadow({mode: 'open'});
 
 
-
-
 class pago extends HTMLElement {
     //Aqui va el código del elemento del web component
-    constructor() {
+    constructor() { // Constructor de la clase 
         super();
         this.attachShadow({ mode: 'open' });
     }
-
-
-      
 
     connectedCallback() {
         this.shadowRoot.innerHTML = `
@@ -59,7 +54,7 @@ class pago extends HTMLElement {
             <div class="overlay-panel overlay-left">
                 <h1>¡Bienvenido!</h1>
                 <p>Inicie sesión con su información personal</p>
-                <button class="ghost" onclick="iniciarSesion()" id="iniciarS">Iniciar Sesión</button>
+                <button class="ghost" id="iniciarS">Iniciar Sesión</button>
             </div>
 
             <div class="overlay-panel overlay-right">
@@ -336,27 +331,27 @@ button.ghost {
 
     this.button = this.shadowRoot.querySelector('#registro');
     this.button.onclick = () => this.registro();
-    //mostrar right-panel-active
-
+    this.button = this.shadowRoot.querySelector('#iniciarS');
+    this.button.onclick = () => this.iniciarS();
     
+    //mostrar right-panel-active
 
     }
 
-    registro() {
+    registro() { 
+        //mostrar right-panel-active en el shadow  de la pagina
+        this.shadowRoot.querySelector('.container').classList.toggle('right-panel-active');  
+
+    }
+
+    iniciarS() {
+        //mostrar right-panel-active en el shadow  de la pagina
         this.shadowRoot.querySelector('.container').classList.toggle('right-panel-active');
-
-        //arroja error
-        
-
-
     }
 
     disconnectedCallback() {
         this.button.onclick = null;
     }
-
-
-
 
 }
 
