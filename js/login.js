@@ -15,76 +15,65 @@ class pago extends HTMLElement {
     connectedCallback() {
         this.shadowRoot.innerHTML = `
 
-    <div class="container" id="container">
-    <div class="form-container crear-container">
-        <form>
-            <h1>Crear Cuenta</h1>
-            <h4>Ingrese los datos para crear tu cuenta</h4>
-            <label>Tipo de usuario</label>
-            <select>   
-                <option disabled="disabled" selected>Seleccionar</option> 
-                <option>Paciente</option>
-                <option>Médico</option>
-            </select>              
-            <input type="email" name="email" placeholder="Correo" required="">
-            <input type="password" name="password" placeholder="Contraseña" required="">
-            
-            <label>Datos</label>
-            <input type="text" name="username" placeholder="Nombre" required="">
-            <input type="text" name="lastname" placeholder="Apellido" required="">
-            <input type="text" name="city" placeholder="Ciudad" required="">
-            <input type="text" name="telephone" placeholder="Telefono" required="">
-            <button type="submit" name="register" value="register">Registrar</button>
-        </form>
-    </div>
-    <div class="form-container iniciar-container">
-        <form action="index.html" target="_blank">
-            
-            <h1>Iniciar Sesión</h1>
-            
-            <input type="email" name="email" placeholder="Correo">
-            <input type="password" name="password" placeholder="Contraseña">
-            
-            <button type="submit"   name="login" value="login">Entrar</button>
-            <br>                    
-        </form>
-    </div>
-    <div class="overlay-container">
-        <div class="overlay">
-            <div class="overlay-panel overlay-left">
-                <h1>¡Bienvenido!</h1>
-                <p>Inicie sesión con su información personal</p>
-                <button class="ghost" id="iniciarS">Iniciar Sesión</button>
-            </div>
+        <div class="container" id="container">
+        <div class="form-container crear-container">
+            <form>
+                <h1>Crear Cuenta</h1>
+                <h4>Ingrese los datos para crear tu cuenta</h4>
+                <div id="Layer1" style="width:100%;  overflow-y: scroll; scrollbar-base-color:aqua;">
+                    <input type="text" name="cedula" placeholder="Cedula" required="">
+                    <input type="text" name="username" placeholder="Nombres" required="">
+                    <input type="text" name="lastname" placeholder="Apellido paterno" required="">
+                    <input type="text" name="lastname2" placeholder="Apellido materno (Opcional)" >
+                    <input type="email" name="email" placeholder="Correo (Opcional)" >
+                    
+                    <input type="date" name="fecha" placeholder="Fecha de nacimiento" required="">
+                    <input type="text" name="edad" placeholder="Edad" required="">
+                    <input type="text" name="telefono" placeholder="Telefono" required="">
+                    <input type="text" name="ciudad" placeholder="Ciudad" required="">
+                    <input type="text" name="direccion" placeholder="Direccion" required=""> 
+                    <label>Añadir foto (Opcional)</label>
+                    <input type="file" name="foto" placeholder="Foto"> 
 
-            <div class="overlay-panel overlay-right">
-                <h1>¡Regístrese ahora!</h1>
-                <p>Ingrese sus datos personales y comience una nueva vida con los mejores precios del año</p>
-                <button class="ghost"  id="registro">Registrarse</button>
+                    <label>Datos para iniciar sesión</label>
+                    <input type="text" name="user" placeholder="Genere usuario" required="">
+                    <input type="password" name="password" placeholder="Contraseña" required="">
+                </div>
+                <button type="submit" name="register" value="register">Registrar</button>
+            </form>
+        </div>
+        <div class="form-container iniciar-container">
+            <form action="index.html" target="_blank">
+                
+                <h1>Iniciar Sesión</h1>
+                
+                <input type="text" name="user" placeholder="Usuario">
+                <input type="password" name="password" placeholder="Contraseña">
+                
+                <button type="submit" name="login" value="login">Entrar</button>
+            </form>
+        </div>
+        <div class="overlay-container">
+            <div class="overlay">
+                <div class="overlay-panel overlay-left">
+                    <h1>¡Bienvenido!</h1>
+                    <p>Inicie sesión con su información personal</p>
+                    <button class="ghost" id="iniciarS">Iniciar Sesión</button>
+                </div>
+
+                <div class="overlay-panel overlay-right">
+                    <h1>¡Regístrese ahora!</h1>
+                    <p>Ingrese sus datos personales y comience una nueva vida <br>con la mejor atención médica</p>
+                    <button class="ghost" id="registro">Registrarse</button>
+                </div>
             </div>
         </div>
+
     </div>
-    
-</div>
 
 <style>
-@import url('https://fonts.googleapis.com/css?family=Montserrat:400,800');
 
-* {
-    box-sizing: border-box;
-}
 
-body {
-    background: url("../img/imagen2.jpg");
-
-    background-position: center;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    font-family: 'Montserrat', sans-serif;
-    margin: -20px 0 50px;
-}
 
 
 h1 {
@@ -110,7 +99,8 @@ p {
             0 10px 10px rgba(0,0,0,0.22);
     position: relative;
     overflow: hidden;
-    margin-top: 100px;
+    margin: 0 auto;
+    margin-top: 90px;
     width: 70%;
     max-width: 100%;
     min-height: 600px;
@@ -279,7 +269,8 @@ button.ghost {
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    padding: 0 40px;
+    
+   
     text-align: center;
     top: 0;
     height: 100%;
