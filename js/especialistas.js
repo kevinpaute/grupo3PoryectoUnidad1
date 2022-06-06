@@ -44,3 +44,97 @@ const fisioterapeutas = [{"img":"img/Trabajos/1.jpg","nombre":"Alejandra Torres"
       {"img":"img/Trabajos/8.jpg","nombre":"Jonsu Burgos","categoria":"Neurología"},
       {"img":"img/Trabajos/6.jpg","nombre":"Katerine Lopez","categoria":"Pediatría"},
       {"img":"img/Trabajos/7.jpg","nombre":"Selena Rivas","categoria":"Psiquiatría"}];
+//formacion de Array para automatizar
+opciones_botones = [especialistas,farmacoterapia,psicologos,fisioterapeutas];
+
+//Clase para la seccion de acerca de:
+class Cabecera extends HTMLElement {
+    constructor() {
+        // constructor
+        super();
+        
+        
+        // Create a shadow root
+        const shadow = this.attachShadow({mode: 'open'});
+
+        // Crear hijos principales
+        const contenedor = document.createElement('div');
+        contenedor.setAttribute('class','contenedor');
+        const foto = document.createElement('div');
+        foto.setAttribute('class','foto');
+        const imagen = document.createElement('img');
+        imagen.setAttribute('src',icono);
+        imagen.setAttribute('width',"115");
+        const contenido_texto = document.createElement('div');
+        contenido_texto.setAttribute('class','texto');
+        const cont_titulo = document.createElement('h3');
+        cont_titulo.setAttribute('class','titulo');
+        cont_titulo.textContent = titulo;
+        const parrafo = document.createElement('p');
+        const monkey1 = document.createElement('span');
+        monkey1.setAttribute('class','monkey');
+        monkey1.textContent = subt1;
+        const monkey2 = document.createElement('span');
+        monkey2.setAttribute('class','monkey-2');
+        monkey2.textContent = cont1;
+        const cont_parrafo =document.createElement('p');
+        cont_parrafo.textContent = texto;
+        //formacion de estructura
+        foto.appendChild(imagen);
+        contenedor.appendChild(foto);
+        contenido_texto.appendChild(cont_titulo);
+        parrafo.appendChild(monkey1);
+        parrafo.appendChild(monkey2);
+        parrafo.appendChild(cont_parrafo);
+        //parrafo.textContent = texto;
+        contenido_texto.appendChild(parrafo);
+        contenedor.appendChild(contenido_texto);
+
+         // Crear CSS para el shadow dom
+         const style = document.createElement('style');
+    
+         style.textContent = `
+         .contenedor{
+            overflow: visible;
+       }
+       .foto{
+        margin-top: -60px;
+       }
+       .img{
+        vertical-align: top;
+        border-radius: 50%;
+        border: 5px solid rgba(255, 255, 255, 0.2);
+       }
+       .texto{
+        color: #5a5a5a;
+        font-size: 1em;
+        line-height: 30px;
+        width: 80%;
+        margin: 40px auto 60px auto;
+       }
+       .titulo{
+        font-size: 34px;
+        line-height: 34px;
+        margin-bottom: 40px;
+        font-weight: 300;
+        color: #007491;
+        text-align: center;
+       }
+       .monkey{
+        font-size: 1rem;
+        font-weight: 700;
+        color: #063158;
+        letter-spacing: 6px;
+       }
+       .monkey-2{
+        font-size: 1rem;
+        font-weight: 700;
+        color: rgb(10, 121, 196);
+    }
+         `;
+ 
+        // Attach the created elements to the shadow dom
+        shadow.appendChild(contenedor);
+        shadow.appendChild(style);
+    }
+}
