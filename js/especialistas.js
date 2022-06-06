@@ -319,4 +319,8 @@ class OptionButton extends HTMLElement {
         }
     }
   }
+  //Define la seccion de Acerca de
+customElements.define('seccion-cabecera', Cabecera);
   
+// Define la seccion de botone
+customElements.define('option-button', OptionButton);
