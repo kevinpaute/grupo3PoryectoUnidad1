@@ -1,7 +1,7 @@
 class ejemploTabla extends HTMLElement { //Se ejecuta cuando el elemento se ha eliminado del DOM
     constructor() { //Se ejecuta al crear el elemento
         super();
-        
+
     }
     connectedCallback() { //Se ejecuta cuando el elemento se ha insertado en el DOM
         this.innerHTML = `  
@@ -119,7 +119,7 @@ window.customElements.define('tabla-element', ejemploTabla);    //Se define el n
 class footer extends HTMLElement { //Se ejecuta cuando el elemento se ha eliminado del DOM
     constructor() { //Se ejecuta al crear el elemento
         super();
-        
+
     }
     connectedCallback() { //Se ejecuta cuando el elemento se ha insertado en el DOM
         this.innerHTML = `  
@@ -245,10 +245,6 @@ class footer extends HTMLElement { //Se ejecuta cuando el elemento se ha elimina
     
         </style>
         
-
-
-
-
         <footer>
         <section class="">
           <h2 id="ubicacion">Ubicación</h2>
