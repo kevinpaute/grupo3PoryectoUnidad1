@@ -294,14 +294,14 @@ class OptionButton extends HTMLElement {
         const botones_total = e.target.parentNode.getElementsByClassName(`btn_mostrar`);//
         const boton_sel = e.target.parentNode.nextSibling.getElementsByClassName(`contenedor`);//asegurarse de obtener los datos del Shadow y modificarlos a conveniencia
         const info = e.target.parentNode.nextSibling; //obtiene la etiqueta
-        if(e.target.className == 'btn_mostrar'){
+        if(e.target.className == 'btn_mostrar'){  // se cambia la clase verificar y itera 
             e.target.setAttribute('class', 'btn_mostrar show1');
-            for (let i = 0; i < botones_total.length; i++) {
-                if(botones_total[i].id == opc){
+            for (let i = 0; i < botones_total.length; i++) {  //ciclo para el tamaño
+                if(botones_total[i].id == opc){   //compara cada botón
                     boton_sel[i].setAttribute('class', 'contenedor show');
                     info.setAttribute('class','info show');
                 }else{
-                    botones_total[i].setAttribute('class', 'btn_mostrar');
+                    botones_total[i].setAttribute('class', 'btn_mostrar'); //nose muestren
                     boton_sel[i].setAttribute('class', 'contenedor');
                 }
                 
