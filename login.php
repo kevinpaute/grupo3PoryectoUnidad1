@@ -1,7 +1,7 @@
 <?php
 
 $incorrecto = "";
-$error = "";
+$conrrecto = "";
 
 
 
@@ -46,8 +46,8 @@ if(isset($user)){
         //Se define las variables de sesión y se redirige a la página de usuario
         $_SESSION['id']=$registro['id_login']; 
         $_SESSION['nombre']=$registro['nombre_log'];
-
-        header('Location: bienvenida.html');
+        $correcto ='<script type="module" src="./js/alertModules.js"></script>'
+        header('Location: about.html');
         
     }
 }else{
@@ -58,21 +58,6 @@ if(isset($user)){
 
 
 
-
-    //Loguearse y mostrar una pagina de inicio
-// if(isset($_POST['login'])){
-//     $username = $_POST['username'];
-//     $password = $_POST['password'];
-//     $query = "SELECT * FROM usuario WHERE nombreusuario = '$username' AND contrasenia = '$password'";
-//     $result = mysqli_query($conn, $query) or die("Algo salió mal en la consulta de la BDD");
-//     if(mysqli_num_rows($result) > 0){
-//         $_SESSION['username'] = $username;
-//         header("location: index.html");
-//         exit();
-//     }else{
-//         $incorrecto = '<script type="module" src="js/alertModules.js"></script>';
-//     }
-// }
 
 ?>
 
