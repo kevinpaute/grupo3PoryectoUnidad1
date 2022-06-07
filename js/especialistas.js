@@ -45,7 +45,7 @@ const fisioterapeutas = [{"img":"img/Trabajos/1.jpg","nombre":"Alejandra Torres"
       {"img":"img/Trabajos/6.jpg","nombre":"Katerine Lopez","categoria":"Pediatría"},
       {"img":"img/Trabajos/7.jpg","nombre":"Selena Rivas","categoria":"Psiquiatría"}];
 //formacion de Array para automatizar
-opciones_botones = [especialistas,farmacoterapia,psicologos,fisioterapeutas];
+opciones_botones = [especialistas,farmacoterapia,psicologos,fisioterapeutas]; //almaceno 
 
 //Clase para la seccion de acerca de:
 class Cabecera extends HTMLElement {
@@ -58,13 +58,13 @@ class Cabecera extends HTMLElement {
         const shadow = this.attachShadow({mode: 'open'});
 
         // Crear hijos principales
-        const contenedor = document.createElement('div');
-        contenedor.setAttribute('class','contenedor');
-        const foto = document.createElement('div');
-        foto.setAttribute('class','foto');
-        const imagen = document.createElement('img');
-        imagen.setAttribute('src',icono);
-        imagen.setAttribute('width',"115");
+        const contenedor = document.createElement('div'); //creo una etiqueta div para el contenedor
+        contenedor.setAttribute('class','contenedor');// clase llamada contenedor
+        const foto = document.createElement('div');//  creo una etiqueta tipo div para la foto
+        foto.setAttribute('class','foto');//clase llamada foto
+        const imagen = document.createElement('img');//crea una etiqueta tipo foto
+        imagen.setAttribute('src',icono);//llama a la imagen
+        imagen.setAttribute('width',"115");//se le pone el ancho
         const contenido_texto = document.createElement('div');
         contenido_texto.setAttribute('class','texto');
         const cont_titulo = document.createElement('h3');
@@ -153,15 +153,13 @@ class OptionButton extends HTMLElement {
       const contenedor_info = document.createElement('div');
       contenedor_info.setAttribute('class', 'info')
       const sup_info = document.createElement('div');
-      //sup_info.setAttribute('class','contenedor-general');
-      //contenedor_info.appendChild(sup_info);
+   
       
       //Creacion de contenedor de personal
-      opciones_botones.forEach(function(area){
+      opciones_botones.forEach(function(area){    //area
         let contenedor = document.createElement('div');
         contenedor.setAttribute('class', `contenedor`);
-        //contenedor.setAttribute('id',`opc-${index}`)
-        area.forEach(function(persona) {
+        area.forEach(function(persona) {           //persona
             let trabajo = document.createElement('div');
             trabajo.setAttribute('class', 'trabajo');
             let contenedorImagen = document.createElement('div');
@@ -202,13 +200,13 @@ class OptionButton extends HTMLElement {
       // Crear botones
       for (var i = 0; i < 4; i++) {
         let boton = document.createElement('button');
-        boton.setAttribute('class', 'btn_mostrar');
-        boton.setAttribute('id', `btn_mostrar${i}`);
+        boton.setAttribute('class', 'btn_mostrar'); //clase para el boton
+        boton.setAttribute('id', `btn_mostrar${i}`); //id para el botón especifico, es decir con la posición
         boton.addEventListener("click", this.functionToExecute, false);
         boton.textContent = botones[i];
         contenedor_botones.appendChild(boton);
         }
-      // Create some CSS to apply to the shadow dom
+      // Crea algo de CSS para aplicar al shadow dom
       const style = document.createElement('style');
   
       style.textContent = `
@@ -292,7 +290,7 @@ class OptionButton extends HTMLElement {
       shadow.appendChild(style);
     }
     functionToExecute(e){
-        let opc = e.target.id//.match(/(\d+)/g);
+        let opc = e.target.id
         const botones_total = e.target.parentNode.getElementsByClassName(`btn_mostrar`);//
         const boton_sel = e.target.parentNode.nextSibling.getElementsByClassName(`contenedor`);
         const info = e.target.parentNode.nextSibling;
