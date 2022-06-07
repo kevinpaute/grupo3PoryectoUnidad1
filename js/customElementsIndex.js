@@ -95,8 +95,8 @@ class ejemploTabla extends HTMLElement { //Se ejecuta cuando el elemento se ha e
             <a href="index.html">Home</a>
             <a href="about.html">Quienes somos</a>
             <a href="ambit-negocio.html">Ambito del negocio</a>
-            <a href="profecionales.html">Profesionales a cargo</a>
-            <a href="pago.html">Modulos de pago</a>
+            <a href="profesionales.html">Profesionales a cargo</a>
+            <a href="Login.html">Login</a>
           </nav>
     
           <div class="contenedor-texto">
@@ -271,11 +271,11 @@ class footer extends HTMLElement { //Se ejecuta cuando el elemento se ha elimina
             <div class="opcion">
     
               <h2>El Hospital</h2>
-              <a href="">Especialidades</a>
-              <a href="">Nuestros médicos</a>
-              <a href="">Acerca de nosotros</a>
-              <a href="">Instalaciones y servicios</a>
-              <a href="">Impacto ambiental</a>
+              <a href="#">Especialidades</a>
+              <a href="profesionales.html">Nuestros médicos</a>
+              <a href="about.html">Acerca de nosotros</a>
+              <a href="#">Instalaciones y servicios</a>
+              <a href="#">Impacto ambiental</a>
     
     
             </div>
@@ -325,5 +325,8 @@ class footer extends HTMLElement { //Se ejecuta cuando el elemento se ha elimina
     }
 }
 window.customElements.define('tabla-element2', footer);
+
+
+
 
 

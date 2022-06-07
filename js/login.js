@@ -242,7 +242,7 @@ style.innerHTML = `
 
 
 
-class pago extends HTMLElement {
+class login extends HTMLElement {
     //Aqui va el código del elemento del web component
     constructor() { // Constructor de la clase 
         super(); // Llamada al constructor de la clase padre
@@ -336,4 +336,4 @@ class pago extends HTMLElement {
 
 }
 
-window.customElements.define('login-component', pago);
+window.customElements.define('login-component', login);
