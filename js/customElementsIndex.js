@@ -329,3 +329,5 @@ class footer extends HTMLElement { //Se ejecuta cuando el elemento se ha elimina
     }
 }
 window.customElements.define('tabla-element2', footer);
+
+
