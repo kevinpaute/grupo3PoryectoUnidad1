@@ -1,81 +1,10 @@
 //aislamiento de CSS  Shadow DOM
 
 
-// const div = document.querySelector('#contenedor'); // Seleccionamos el div
-// div.attachShadow({mode: 'open'});
-
-
-class pago extends HTMLElement {
-    //Aqui va el código del elemento del web component
-    constructor() { // Constructor de la clase 
-        super();
-        this.attachShadow({ mode: 'open' });
-    }
-
-    connectedCallback() {
-        this.shadowRoot.innerHTML = `
-
-        <div class="container" id="container">
-        <div class="form-container crear-container">
-            <form>
-                <h1>Crear Cuenta</h1>
-                <h4>Ingrese los datos para crear tu cuenta</h4>
-                <div id="Layer1" style="width:100%;  overflow-y: scroll; scrollbar-base-color:aqua;">
-                    <input type="text" name="cedula" placeholder="Cedula" required="">
-                    <input type="text" name="username" placeholder="Nombres" required="">
-                    <input type="text" name="lastname" placeholder="Apellido paterno" required="">
-                    <input type="text" name="lastname2" placeholder="Apellido materno (Opcional)" >
-                    <input type="email" name="email" placeholder="Correo (Opcional)" >
-                    
-                    <input type="date" name="fecha" placeholder="Fecha de nacimiento" required="">
-                    <input type="text" name="edad" placeholder="Edad" required="">
-                    <input type="text" name="telefono" placeholder="Telefono" required="">
-                    <input type="text" name="ciudad" placeholder="Ciudad" required="">
-                    <input type="text" name="direccion" placeholder="Direccion" required=""> 
-                    <label>Añadir foto (Opcional)</label>
-                    <input type="file" name="foto" placeholder="Foto"> 
-
-                    <label>Datos para iniciar sesión</label>
-                    <input type="text" name="user" placeholder="Genere usuario" required="">
-                    <input type="password" name="password" placeholder="Contraseña" required="">
-                </div>
-                <button type="submit" name="register" value="register">Registrar</button>
-            </form>
-        </div>
-        <div class="form-container iniciar-container">
-            <form action="index.html" target="_blank">
-                
-                <h1>Iniciar Sesión</h1>
-                
-                <input type="text" name="user" placeholder="Usuario">
-                <input type="password" name="password" placeholder="Contraseña">
-                
-                <button type="submit" name="login" value="login">Entrar</button>
-            </form>
-        </div>
-        <div class="overlay-container">
-            <div class="overlay">
-                <div class="overlay-panel overlay-left">
-                    <h1>¡Bienvenido!</h1>
-                    <p>Inicie sesión con su información personal</p>
-                    <button class="ghost" id="iniciarS">Iniciar Sesión</button>
-                </div>
-
-                <div class="overlay-panel overlay-right">
-                    <h1>¡Regístrese ahora!</h1>
-                    <p>Ingrese sus datos personales y comience una nueva vida <br>con la mejor atención médica</p>
-                    <button class="ghost" id="registro">Registrarse</button>
-                </div>
-            </div>
-        </div>
-
-    </div>
-
-<style>
-
-
-
-
+const div = document.querySelector('#contenedor'); // Seleccionamos el div
+div.attachShadow({mode: 'open'});
+const style = document.createElement('style'); // Creamos un elemento style
+style.innerHTML= `
 h1 {
     font-weight: bold;
     margin: 0;
@@ -308,14 +237,95 @@ button.ghost {
 .tyb{
     width: 100%;
 }
+`;
+
+
+
+class pago extends HTMLElement {
+    //Aqui va el código del elemento del web component
+    constructor() { // Constructor de la clase 
+        super();
+        
+    }
+
+    connectedCallback() {
+        const section = document.createElement('section');
+        section.innerHTML = `
+
+        <div class="container" id="container">
+        <div class="form-container crear-container">
+            <form>
+                <h1>Crear Cuenta</h1>
+                <h4>Ingrese los datos para crear tu cuenta</h4>
+                <div id="Layer1" style="width:100%;  overflow-y: scroll; scrollbar-base-color:aqua;">
+                    <input type="text" name="cedula" placeholder="Cedula" required="">
+                    <input type="text" name="username" placeholder="Nombres" required="">
+                    <input type="text" name="lastname" placeholder="Apellido paterno" required="">
+                    <input type="text" name="lastname2" placeholder="Apellido materno (Opcional)" >
+                    <input type="email" name="email" placeholder="Correo (Opcional)" >
+                    
+                    <input type="date" name="fecha" placeholder="Fecha de nacimiento" required="">
+                    <input type="text" name="edad" placeholder="Edad" required="">
+                    <input type="text" name="telefono" placeholder="Telefono" required="">
+                    <input type="text" name="ciudad" placeholder="Ciudad" required="">
+                    <input type="text" name="direccion" placeholder="Direccion" required=""> 
+                    <label>Añadir foto (Opcional)</label>
+                    <input type="file" name="foto" placeholder="Foto"> 
+
+                    <label>Datos para iniciar sesión</label>
+                    <input type="text" name="user" placeholder="Genere usuario" required="">
+                    <input type="password" name="password" placeholder="Contraseña" required="">
+                </div>
+                <button type="submit" name="register" value="register">Registrar</button>
+            </form>
+        </div>
+        <div class="form-container iniciar-container">
+            <form action="index.html" target="_blank">
+                
+                <h1>Iniciar Sesión</h1>
+                
+                <input type="text" name="user" placeholder="Usuario">
+                <input type="password" name="password" placeholder="Contraseña">
+                
+                <button type="submit" name="login" value="login">Entrar</button>
+            </form>
+        </div>
+        <div class="overlay-container">
+            <div class="overlay">
+                <div class="overlay-panel overlay-left">
+                    <h1>¡Bienvenido!</h1>
+                    <p>Inicie sesión con su información personal</p>
+                    <button class="ghost" id="iniciarS">Iniciar Sesión</button>
+                </div>
+
+                <div class="overlay-panel overlay-right">
+                    <h1>¡Regístrese ahora!</h1>
+                    <p>Ingrese sus datos personales y comience una nueva vida <br>con la mejor atención médica</p>
+                    <button class="ghost" id="registro">Registrarse</button>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+<style>
+
+
+
+
+
 
 </style>
 
     `;
 
-    this.button = this.shadowRoot.querySelector('#registro'); //boton de registro de usuario 
+    div.shadowRoot.appendChild(section);
+    div.shadowRoot.appendChild(style);
+
+
+    this.button = div.shadowRoot.querySelector('#registro'); //boton de registro de usuario 
     this.button.onclick = () => this.registro(); //funcion de registro de usuario 
-    this.button = this.shadowRoot.querySelector('#iniciarS'); //boton de iniciar sesion de usuario
+    this.button = div.shadowRoot.querySelector('#iniciarS'); //boton de iniciar sesion de usuario
     this.button.onclick = () => this.iniciarS(); //funcion de iniciar sesion de usuario
     
     //mostrar right-panel-active
@@ -324,17 +334,18 @@ button.ghost {
 
     registro() {  //funcion de registro de usuario
         //mostrar right-panel-active en el shadow  de la pagina
-        this.shadowRoot.querySelector('.container').classList.toggle('right-panel-active');
+        
+        div.shadowRoot.querySelector('.container').classList.add('right-panel-active');
+
+        
 
     }
 
     iniciarS() { //funcion de iniciar sesion de usuario
-        this.shadowRoot.querySelector('.container').classList.toggle('right-panel-active'); 
+        div.shadowRoot.querySelector('.container').classList.toggle('right-panel-active'); 
     }
 
-    disconnectedCallback() {
-        this.button.onclick = null;
-    }
+   
 
 }
 
