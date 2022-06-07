@@ -254,7 +254,7 @@ class pago extends HTMLElement {
 
             <div class="container" id="container">
             <div class="form-container crear-container">
-                <form>
+                <form  >
                     <h1>Crear Cuenta</h1>
                     <h4>Ingrese los datos para crear tu cuenta</h4>
                     <div id="Layer1" style="width:100%;  overflow-y: scroll; scrollbar-base-color:aqua;">
@@ -280,12 +280,12 @@ class pago extends HTMLElement {
                 </form>
             </div>
             <div class="form-container iniciar-container">
-                <form action="index.html" target="_blank">
+                <form action="login.php" method="post" >
                     
                     <h1>Iniciar Sesión</h1>
                     
-                    <input type="text" name="user" placeholder="Usuario">
-                    <input type="password" name="password" placeholder="Contraseña">
+                    <input type="text" name="user" id="user"  placeholder="Usuario">
+                    <input type="password" name="password" id="password"  placeholder="Contraseña">
                     
                     <button type="submit" name="login" value="login">Entrar</button>
                 </form>
