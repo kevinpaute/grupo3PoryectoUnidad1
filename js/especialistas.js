@@ -290,13 +290,12 @@ class OptionButton extends HTMLElement {
       shadow.appendChild(style);
     }
     functionToExecute(e){
-        let opc = e.target.id
+        let opc = e.target.id // obtiene el ID del botón que realiza el evento
         const botones_total = e.target.parentNode.getElementsByClassName(`btn_mostrar`);//
-        const boton_sel = e.target.parentNode.nextSibling.getElementsByClassName(`contenedor`);
-        const info = e.target.parentNode.nextSibling;
+        const boton_sel = e.target.parentNode.nextSibling.getElementsByClassName(`contenedor`);//asegurarse de obtener los datos del Shadow y modificarlos a conveniencia
+        const info = e.target.parentNode.nextSibling; //obtiene la etiqueta
         if(e.target.className == 'btn_mostrar'){
             e.target.setAttribute('class', 'btn_mostrar show1');
-            //botones_total.setAttributbotones_total[i]
             for (let i = 0; i < botones_total.length; i++) {
                 if(botones_total[i].id == opc){
                     boton_sel[i].setAttribute('class', 'contenedor show');
